@@ -60,7 +60,7 @@ data "aws_iam_policy_document" "backup" {
 resource "aws_iam_role" "backup" {
   count = local.create_backup_resources ? 1 : 0
 
-  name_prefix = "${var.name}-backup"
+  name_prefix = substr("${var.name}-backup", 0, 32)
 
   assume_role_policy = data.aws_iam_policy_document.assume_backup.json
   tags               = var.additional_tags

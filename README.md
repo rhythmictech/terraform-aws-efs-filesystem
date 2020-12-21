@@ -32,12 +32,13 @@ module "efs" {
 | Name | Version |
 |------|---------|
 | terraform | >= 0.12.19 |
+| aws | >=3.21.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| aws | n/a |
+| aws | >=3.21.0 |
 
 ## Inputs
 
