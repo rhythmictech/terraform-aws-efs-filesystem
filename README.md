@@ -63,6 +63,7 @@ module "efs" {
 
 | Name | Description |
 |------|-------------|
+| efs\_backup\_iam\_role | ARN of the IAM Role created to run AWS Backup |
 | efs\_file\_system\_id | EFS File System ID |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
