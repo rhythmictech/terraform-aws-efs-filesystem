@@ -5,6 +5,6 @@ output "efs_file_system_id" {
 }
 
 output "efs_backup_iam_role" {
-  description = "ARN of the IAM Role created to run AWS Backup"
-  value       = try(aws_iam_role.backup[0].id, "")
+  description = "Name of the IAM Role created to run AWS Backup"
+  value       = try(aws_iam_role.backup[0].id, null)
 }
