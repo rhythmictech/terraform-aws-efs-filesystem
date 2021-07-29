@@ -25,7 +25,8 @@ data "aws_iam_policy_document" "backup" {
       "elasticfilesystem:Restore",
       "elasticfilesystem:CreateFilesystem",
       "elasticfilesystem:DescribeFilesystems",
-      "elasticfilesystem:DeleteFilesystem"
+      "elasticfilesystem:DeleteFilesystem",
+      "elasticfilesystem:DescribeTags"
     ]
 
     # This will not actually use the default file system, this just prevents various errors
