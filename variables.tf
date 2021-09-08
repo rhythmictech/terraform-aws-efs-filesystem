@@ -93,3 +93,9 @@ variable "enable_backups" {
   description = "Should AWS Backup be configured for this file system?"
   type        = bool
 }
+
+variable "backup_role_permissions_boundary" {
+  default     = null
+  description = "An optional IAM permissions boundary to use when creating the IAM role for backups"
+  type        = string
+}

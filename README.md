@@ -48,6 +48,7 @@ module "efs" {
 | allowed\_cidrs | List of CIDRs permitted to access EFS mounts | `list(string)` | `[]` | no |
 | allowed\_security\_groups | List of Security Group IDs permitted to access EFS mounts | `list(string)` | `[]` | no |
 | backup\_kms\_key\_id | KMS Key to use for backups (Specify `aws/backup` to use the default key, leave null to have a key generated automatically) | `string` | `null` | no |
+| backup\_role\_permissions\_boundary | Optional [permissions boundary](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html) ARN to use for the backup IAM role. | `string` | `null` | no |
 | backup\_schedule | Cron schedule to run backups on | `string` | `"cron(0 0 * * ? *)"` | no |
 | create | If `false`, this module does nothing | `bool` | `true` | no |
 | efs\_kms\_key\_id | ARN of KMS key to use for EFS encryption (leave null to create a key, set to `aws/backup` to use AWS default CMK) | `string` | `null` | no |
