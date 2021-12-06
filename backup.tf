@@ -63,8 +63,9 @@ resource "aws_iam_role" "backup" {
 
   name_prefix = substr("${var.name}-backup", 0, 32)
 
-  assume_role_policy = data.aws_iam_policy_document.assume_backup.json
-  tags               = var.additional_tags
+  assume_role_policy   = data.aws_iam_policy_document.assume_backup.json
+  permissions_boundary = var.backup_role_permissions_boundary
+  tags                 = var.additional_tags
 
   lifecycle {
     create_before_destroy = true
