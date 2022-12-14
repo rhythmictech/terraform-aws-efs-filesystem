@@ -107,6 +107,15 @@ resource "aws_backup_plan" "backup" {
     rule_name         = "${var.name}-cron-rule"
     target_vault_name = aws_backup_vault.backup[0].name
     schedule          = var.backup_schedule
+
+    dynamic "lifecycle" {
+      for_each = (var.backup_lifecycle_delete_after != null && var.backup_lifecycle_cold_storage_after != null) ? ["true"] : []
+
+      content {
+        delete_after       = var.backup_lifecycle_delete_after
+        cold_storage_after = var.backup_lifecycle_cold_storage_after
+      }
+    }
   }
 }
 

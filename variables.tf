@@ -99,3 +99,15 @@ variable "backup_role_permissions_boundary" {
   description = "An optional IAM permissions boundary to use when creating the IAM role for backups"
   type        = string
 }
+
+variable "backup_lifecycle_delete_after" {
+  default     = null
+  description = "Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than cold_storage_after."
+  type        = number
+}
+
+variable "backup_lifecycle_cold_storage_after" {
+  default     = null
+  description = "Specifies the number of days after creation that a recovery point is moved to cold storage."
+  type        = number
+}
