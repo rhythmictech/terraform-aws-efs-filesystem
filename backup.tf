@@ -109,7 +109,7 @@ resource "aws_backup_plan" "backup" {
     schedule          = var.backup_schedule
 
     dynamic "lifecycle" {
-      for_each = (var.backup_lifecycle_delete_after != null && var.backup_lifecycle_cold_storage_after != null) ? ["true"] : []
+      for_each = (var.backup_lifecycle_delete_after != null || var.backup_lifecycle_cold_storage_after != null) ? ["true"] : []
 
       content {
         delete_after       = var.backup_lifecycle_delete_after
